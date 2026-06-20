@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8">
+    <title>Galleria Virtuale - Emiciclo</title>
+    
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+
+
+    
+
+
+   <!--muri invisibili, uso un java script--> 
+    <script>
+AFRAME.registerComponent('muri-invisibili', {
+  init: function () {
+    this.keys = {};
+    window.addEventListener('keydown', (e) => { this.keys[e.key.toLowerCase()] = true; });
+    window.addEventListener('keyup', (e) => { this.keys[e.key.toLowerCase()] = false; });
+  },
+
+  tick: function (time, timeDelta) {
+    if (!timeDelta) return;
+
+    var el = this.el;
+    var position = el.object3D.position;
+    var rotation = el.object3D.rotation;
+
+    var speed = 0.005 * timeDelta; 
+
+    var moveX = 0;
+    var moveZ = 0;
+
+    if (this.keys['w'] || this.keys['arrowup']) {
+      moveX -= Math.sin(rotation.y);
+      moveZ -= Math.cos(rotation.y);
+    }
+    if (this.keys['s'] || this.keys['arrowdown']) {
+      moveX += Math.sin(rotation.y);
+      moveZ += Math.cos(rotation.y);
+    }
+    if (this.keys['a'] || this.keys['arrowleft']) {
+      moveX -= Math.cos(rotation.y);
+      moveZ += Math.sin(rotation.y);
+    }
+    if (this.keys['d'] || this.keys['arrowright']) {
+      moveX += Math.cos(rotation.y);
+      moveZ -= Math.sin(rotation.y);
+    }
+
+    var prossimaX = position.x + moveX * speed;
+    var prossimaZ = position.z + moveZ * speed;
+
+    // Limiti della stanza (Modificali se ti ritrovi bloccato fuori dal modello)
+    var limiteDestra = 10;    
+    var limiteSinistra = -9;   
+    var limiteDietro = 19;    
+    var limiteAvanti = -16;   
+
+    if (prossimaX <= limiteDestra && prossimaX >= limiteSinistra) {
+      position.x = prossimaX;
+    }
+    if (prossimaZ <= limiteDietro && prossimaZ >= limiteAvanti) {
+      position.z = prossimaZ;
+    }
+  }
+});
+    </script>
+  </head>
+
+
+  <!--assets-->
+  <body>
+    <a-scene>
+
+      <a-assets>
+
+        <a-asset-item id="emiciclo-modello" src="modelli/stanza_internaMod.glb"></a-asset-item>
+        <a-asset-item id="quadro" src="modelli/picture_frame.glb"></a-asset-item>
+        <a-asset-item id="statuetta" src="modelli/statuettaEbase.glb"></a-asset-item>
+        <a-asset-item id="colonnePortanti" src="modelli/ionic_column.glb"></a-asset-item>
+        <img id="vetrata" src="img/finestraCol.png">
+        <img id="quadro1" src="img/quadro1.jpg">
+        <img id="quadro2" src="img/quadro2.jpg">
+        <img id="quadro3" src="img/quadro3.jpg">
+        <img id="quadro6" src="img/quadro6.jpg">
+        <img id="quadro7" src="img/quadro7.jpg">
+        
+      </a-assets>
+
+      <a-entity id="user-camera" 
+                camera 
+                look-controls 
+                muri-invisibili
+                position="0 2.8 8">
+        <a-cursor color="#2196F3"></a-cursor>
+      </a-entity>
+
+      <a-entity gltf-model="#emiciclo-modello" 
+                position="0 -1.5 0" 
+                scale="2.5 3 2.5"
+                rotation="0 270 0">
+      </a-entity>
+      
+
+      <!--interni-->
+      <a-entity gltf-model="#statuetta" 
+                position="0 -2 -9" 
+                scale="2.5 3 2.5"
+                rotation="0 360 0"
+                static-body >
+      </a-entity>
+
+      <a-image src="#vetrata" 
+               position="0.7 3.5 -18.5" 
+               rotation="0 360 0" 
+               width="6" 
+               height="12">
+      </a-image>
+
+      <a-entity gltf-model="#colonnePortanti" 
+               position="-3 -3 -19" 
+               scale="0.15 0.15 0.15"
+               rotation="0 270 0">
+      </a-entity>
+
+      <a-entity gltf-model="#colonnePortanti" 
+               position="4.5 -3 -19" 
+               scale="0.15 0.15 0.15"
+               rotation="0 270 0">
+      </a-entity>
+
+
+      <!--quadri-->
+      <!--sx-->
+
+      <a-entity gltf-model="modelli/picture_frame.glb" position="-9.2 1.78302 17.5" scale="2 1.6 2.01" rotation="">
+      </a-entity>
+
+      <a-image src="#quadro1" position="-9.15233 5.36481 16.09839" rotation="0 90 0" width="3" height="3" material="" geometry="">
+      </a-image>
+
+
+
+      <a-entity gltf-model="#quadro" 
+          position="-9.2 1 -12.5" 
+          scale="2 2 2"
+          rotation="0 0 0">
+      </a-entity>
+
+
+
+
+
+
+      <a-entity gltf-model="#quadro" 
+          position="-9.2 -5.5 -2.01" 
+          scale="2 4.47 2.79" 
+          rotation="">
+      </a-entity>
+      <a-image src="#quadro3" 
+          position="-9.19258 4.5 -3.95982" 
+          rotation="0 90 0" 
+          width="4" 
+          height="8" 
+          material="" 
+          geometry="">
+      </a-image>
+
+
+
+      <a-entity gltf-model="modelli/picture_frame.glb" 
+          position="-9.2 -1.71 7.5" 
+          scale="2 2.78 2.09" 
+          rotation="">
+      </a-entity>
+       <a-image src="#quadro2" 
+          position="-9.19258 4.5 6" 
+          rotation="0 90 0" 
+          width="3" 
+          height="5" 
+          material="" 
+          geometry="">
+       </a-image>
+
+
+
+
+
+
+      <!--dx-->
+
+      <a-entity gltf-model="#quadro" 
+          position="10 1 -15.5" 
+          scale="2 2 2"
+          rotation="0 180 0">
+      </a-entity>
+
+
+      <a-entity gltf-model="#quadro" 
+          position="10 1 -5.43" 
+          scale="2 2 1.91" 
+          rotation="0 180 0">
+      </a-entity>
+      <a-image src="#quadro7" 
+          position="9.99163 5.45552 -4.09102" 
+          rotation="0 90 0" 
+          width="3" 
+          height="5" 
+          material="" 
+          geometry="" 
+          scale="0.91 0.72 1">
+      </a-image>
+
+
+
+      <a-entity gltf-model="#quadro" 
+          position="10 1 4.5" 
+          scale="2 2 2"
+          rotation="0 180 0">
+      </a-entity>
+
+
+
+
+      <a-entity gltf-model="#quadro" 
+          position="10 1.5 14.5" 
+          scale="2 1.5 2"
+          rotation="0 180 0">
+      </a-entity>
+      <a-image src="#quadro6" 
+          position="9.97698 4.94 15.84156" 
+          rotation="0 90 0" 
+          width="3" 
+          height="3" 
+          material="" 
+          geometry="">
+      </a-image>
+
+
+
+
+
+
+
+
+
+
+
+  <!--portale per tornare indietro-->
+  <a-entity id="colonnato" position="0.5 2 15" scale="1 1 1" rotation="0 0 0">
+
+    <a-torus
+    color="#FF4500" 
+    radius="1"
+    radius-tubular="0.04"
+    material="emissive: #FF4500; emissiveIntensity: 0.5"
+    animation="property: rotation; to: 0 360 0; loop: true; dur: 6000; easing: linear">
+  </a-torus>
+
+  <a-circle
+    class="clickable"
+    radius="1"
+    color="#4d0000"
+    opacity="0.2" 
+    side="double"
+    link="href: portone.html; title: Esci dall'edificio ; visualAspectEnabled: false">
+  </a-circle>
+  
+  <a-text
+    value="Torna fuori"
+    align="center"
+    position="0 0 0"
+    scale="2 2 2"
+    color="#FFFFFF"
+    rotation="0 180 0"
+    font="roboto">
+  </a-text>
+
+  </a-entity>
+
+
+      <a-entity light="type: ambient; color: #ffffff; intensity: 1.2;"></a-entity>
+
+      <a-entity light="type: point; color: #ffebc2; intensity: 0.8; distance: 15;" 
+                position="0 2 0">
+      </a-entity>
+
+    </a-scene> </body>
+</html>

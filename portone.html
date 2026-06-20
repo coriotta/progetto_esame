@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8">
+    <title>Ingresso - Portone</title>
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+  </head>
+
+  <body>
+    <a-scene>
+
+        <a-entity id="camera-rig" position="11 0 0" rotation = "0 0 0">
+        
+          <a-entity 
+          id="user-camera" 
+          camera 
+          look-controls 
+          wasd-controls="acceleration: 30;"
+          cursor="rayOrigin: mouse"
+          raycaster="objects: .clickable">
+          <a-cursor color="#2196F3"></a-cursor>
+        </a-entity>
+      </a-entity>
+
+  
+
+      <a-sky src="img/portoneEditor.jpg" rotation="0 0 0"></a-sky>
+
+
+
+<!--portale per andare avanti-->
+
+  <a-entity id="INTERNI" position="5 1 -35" scale="5 5 5" rotation="0 180 0">
+
+  <a-torus
+    color="#FF4500" 
+    radius="1"
+    radius-tubular="0.04"
+    material="emissive: #FF4500; emissiveIntensity: 0.5"
+    animation="property: rotation; to: 0 360 0; loop: true; dur: 6000; easing: linear">
+  </a-torus>
+
+  <a-circle
+    class="clickable"
+    radius="1"
+    color="#4d0000"
+    opacity="0.2" 
+    side="double"
+    link="href: stanza_interna.html; title: Entra nella struttura ; visualAspectEnabled: false">
+  </a-circle>
+  
+  <a-text
+    value="Stanza Interna"
+    align="center"
+    position="0 0 0"
+    scale="2 2 2"
+    color="#FFFFFF"
+    rotation="0 180 0"
+    font="roboto">
+  </a-text>
+
+  </a-entity>
+
+
+
+  <!--portale per tornare indietro-->
+  <a-entity id="piazzale" position="-20 -1 30" scale="5 5 5" rotation="0 0 0">
+
+  <a-torus
+    color="#FF4500" 
+    radius="1"
+    radius-tubular="0.04"
+    material="emissive: #FF4500; emissiveIntensity: 0.5"
+    animation="property: rotation; to: 0 360 0; loop: true; dur: 6000; easing: linear">
+  </a-torus>
+
+  <a-circle
+    class="clickable"
+    radius="1"
+    color="#4d0000"
+    opacity="0.2" 
+    side="double"
+    link="href: emiciclo.html; title: Torna indietro al piazzale ; visualAspectEnabled: false">
+  </a-circle>
+  
+  <a-text
+    value="Torna alla piazza"
+    align="center"
+    position="0 0 0"
+    scale="2 2 2"
+    color="#FFFFFF"
+    rotation="0 180 0"
+    font="roboto">
+  </a-text>
+
+  </a-entity>
+
+    </a-scene>
+  </body>
+</html>
