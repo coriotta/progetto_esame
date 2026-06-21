@@ -3,18 +3,18 @@
   <head>
     <meta charset="UTF-8">
     <title>Emiciclo</title>
-    <script src="https://aframe.io/releases/1.4.2/aframe.min.js" defer></script>
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js" ></script>
   </head>
 
   <body>
     <a-scene>
 
-      <a-assets>
-        <a-asset-item id="bacheca" src="modelli/Billboard.glb"></a-asset-item>
-        <audio id="audio-guida" src="audio/guida_emiciclo.mp3" preload="auto"></audio>
-        <img id="cartello" src="img/cartello.jpg">
-        <img id="sfondo" src="img/maps360.jpg">
-      </a-assets>
+    <a-assets timeout="1000">
+       <a-asset-item id="bacheca" src="modelli/Billboard.glb"></a-asset-item>
+       <audio id="audio_bacheca" src="audio/bacheca1.mp3" preload="none"></audio>
+       <img id="cartello" src="img/cartello.jpg">
+       <img id="sfondo" src="img/maps360.jpg">
+    </a-assets>
 
       <a-sky src="#sfondo" rotation="4 -90 0"></a-sky>
 
@@ -25,7 +25,13 @@
 
 
 <!--Bacheca informativa-->
-    <a-entity gltf-model="#bacheca" position="4.35868 -2.354 3.861" scale="10 9 9" rotation="0 352.32 0" class="clickable" info-portale="">
+    <a-entity gltf-model="#bacheca" 
+        position="4.35868 -2.354 3.861" 
+        scale="10 9 9" 
+        rotation="0 352.32 0" 
+        class="clickable" 
+        info-portale=""
+        sound="src: #audio_bacheca; on: click">
 
         <a-image src="#cartello" width="0.40" height="0.30" position="0.093 0.111 0.032" rotation="0 150 0" material="shader: standard; npot: true" geometry="">
         </a-image>
