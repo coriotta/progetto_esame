@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Galleria Virtuale - Emiciclo</title>
     
-    <script src="https://aframe.io/releases/1.4.2/aframe.min.js" defer></script>
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
 
 
     
@@ -77,12 +77,12 @@ AFRAME.registerComponent('muri-invisibili', {
 
         <a-asset-item id="emiciclo-modello" src="modelli/stanza_internaMod.glb"></a-asset-item>
         <a-asset-item id="statuetta" src="modelli/statuettaEbase.glb"></a-asset-item>
+        <img id="targhetta" src="img/targhetta.jpg">
         <a-asset-item id="colonnePortanti" src="modelli/ionic_column.glb"></a-asset-item>
         <img id="vetrata" src="img/finestra.png">
         <img id="quadro1" src="img/quadro1.jpg">
         <img id="quadro2" src="img/quadro2.jpg">
         <img id="quadro3" src="img/quadro3.jpg">
-
         <img id="quadro4" src="img/quadro4.jpg">
         <img id="quadro5" src="img/quadro5.jpg">
         <img id="quadro6" src="img/quadro6.jpg">
@@ -95,7 +95,7 @@ AFRAME.registerComponent('muri-invisibili', {
                 camera 
                 look-controls 
                 muri-invisibili
-                position="0 2.8 8">
+                position="0 2.8 -1">
         <a-cursor color="#2196F3"></a-cursor>
       </a-entity>
 
@@ -113,6 +113,8 @@ AFRAME.registerComponent('muri-invisibili', {
                 rotation="0 360 0"
                 static-body >
       </a-entity>
+<a-image src="#targhetta" position="0.32556 1.96104 -8.4" rotation="0 360 0" width="1" height="3" material="" geometry="" scale="1.26 0.13 1">
+      </a-image>
 
       <a-image src="#vetrata" 
                position="0.7 3.5 -18.5" 
@@ -263,10 +265,10 @@ AFRAME.registerComponent('muri-invisibili', {
   </a-entity>
 
 
-      <a-entity light="type: ambient; color: #ffffff; intensity: 1.2;"></a-entity>
+      <a-entity light="type: ambient; color: #ffffff; intensity: 1.4;"></a-entity>
 
-      <a-entity light="type: point; color: #ffebc2; intensity: 0.8; distance: 15;" 
-                position="0 2 0">
+      <a-entity light="type: point; color: #ffebc2; intensity: 1; distance: 15;" 
+                position="0 2 -9">
       </a-entity>
 
     </a-scene> </body>

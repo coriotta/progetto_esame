@@ -3,24 +3,23 @@
   <head>
     <meta charset="UTF-8">
     <title>Ingresso - Portone</title>
-    <script src="https://aframe.io/releases/1.4.2/aframe.min.js" defer></script>
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
   </head>
 
   <body>
     <a-scene>
 
-        <a-entity id="camera-rig" position="11 0 0" rotation = "0 0 0">
-        
-  
-
       <a-assets>
         <img id="portone" src="img/portone360.jpg">
-      </a-assets>
+        <img id="cartello3" src="img/cartello3.jpg">
 
+        <audio id="audio_bacheca3" src="audio/bacheca3.mp3" preload="none"></audio>
+      </a-assets>
 
       <a-sky src="#portone" rotation="0 0 0"></a-sky>
 
-      <a-entity 
+   <a-entity id="camera-rig" position="11 0 0" rotation="0 0 0">
+        <a-entity 
           id="user-camera" 
           camera 
           look-controls 
@@ -31,76 +30,79 @@
         </a-entity>
       </a-entity>
 
+
+
+
+<a-image src="#cartello3" width="5" height="3" position="19.207 1.9 -16.062" rotation="0 -25.93 0" material="shader: standard; npot: true" geometry="" scale="2.7 2.7 1">
+
+  <a-circle class="clickable" radius="0.3" color="#FF4500" position="2 -1.2 0.05" material="emissive: #FF4500; emissiveIntensity: 0.6" sound="src: audio/bacheca3.mp3; on: click" animation="property: scale; to: 1.1 1.1 1.1; dir: alternate; loop: true" geometry="">
+    
+    <a-text value="PLAY" align="center" width="3" position="0 0 0.01" color="#FFFFFF" text=""></a-text>
+  </a-circle>
+
+</a-image>
       
+      
+      <!--portale-->
+      </a-entity> <a-entity id="INTERNI" position="5 1 -35" scale="5 5 5" rotation="0 180 0">
+        <a-torus
+          color="#FF4500" 
+          radius="1"
+          radius-tubular="0.04"
+          material="emissive: #FF4500; emissiveIntensity: 0.5"
+          animation="property: rotation; to: 0 360 0; loop: true; dur: 6000; easing: linear">
+        </a-torus>
+
+        <a-circle
+          class="clickable"
+          radius="1"
+          color="#4d0000"
+          opacity="0.2" 
+          side="double"
+          link="href: stanza_interna.html; title: Entra nella struttura ; visualAspectEnabled: false">
+        </a-circle>
+        
+        <a-text
+          value="Navata"
+          align="center"
+          position="0 0 0"
+          scale="2 2 2"
+          color="#FFFFFF"
+          rotation="0 180 0"
+          font="roboto">
+        </a-text>
+      </a-entity>
 
 
+      <!--portale per tornare indietro-->
+      <a-entity id="piazzale" position="-20 -1 30" scale="5 5 5" rotation="0 0 0">
+        <a-torus
+          color="#FF4500" 
+          radius="1"
+          radius-tubular="0.04"
+          material="emissive: #FF4500; emissiveIntensity: 0.5"
+          animation="property: rotation; to: 0 360 0; loop: true; dur: 6000; easing: linear">
+        </a-torus>
 
-<!--portale per andare avanti-->
-
-  <a-entity id="INTERNI" position="5 1 -35" scale="5 5 5" rotation="0 180 0">
-
-  <a-torus
-    color="#FF4500" 
-    radius="1"
-    radius-tubular="0.04"
-    material="emissive: #FF4500; emissiveIntensity: 0.5"
-    animation="property: rotation; to: 0 360 0; loop: true; dur: 6000; easing: linear">
-  </a-torus>
-
-  <a-circle
-    class="clickable"
-    radius="1"
-    color="#4d0000"
-    opacity="0.2" 
-    side="double"
-    link="href: stanza_interna.html; title: Entra nella struttura ; visualAspectEnabled: false">
-  </a-circle>
-  
-  <a-text
-    value="Stanza Interna"
-    align="center"
-    position="0 0 0"
-    scale="2 2 2"
-    color="#FFFFFF"
-    rotation="0 180 0"
-    font="roboto">
-  </a-text>
-
-  </a-entity>
-
-
-
-  <!--portale per tornare indietro-->
-  <a-entity id="piazzale" position="-20 -1 30" scale="5 5 5" rotation="0 0 0">
-
-  <a-torus
-    color="#FF4500" 
-    radius="1"
-    radius-tubular="0.04"
-    material="emissive: #FF4500; emissiveIntensity: 0.5"
-    animation="property: rotation; to: 0 360 0; loop: true; dur: 6000; easing: linear">
-  </a-torus>
-
-  <a-circle
-    class="clickable"
-    radius="1"
-    color="#4d0000"
-    opacity="0.2" 
-    side="double"
-    link="href: emiciclo.html; title: Torna indietro al piazzale ; visualAspectEnabled: false">
-  </a-circle>
-  
-  <a-text
-    value="Torna alla piazza"
-    align="center"
-    position="0 0 0"
-    scale="2 2 2"
-    color="#FFFFFF"
-    rotation="0 180 0"
-    font="roboto">
-  </a-text>
-
-  </a-entity>
+        <a-circle
+          class="clickable"
+          radius="1"
+          color="#4d0000"
+          opacity="0.2" 
+          side="double"
+          link="href: emiciclo.html; title: Torna indietro al piazzale ; visualAspectEnabled: false">
+        </a-circle>
+        
+        <a-text
+          value="Torna alla piazza"
+          align="center"
+          position="0 0 0"
+          scale="2 2 2"
+          color="#FFFFFF"
+          rotation="0 180 0"
+          font="roboto">
+        </a-text>
+      </a-entity>
 
     </a-scene>
   </body>
