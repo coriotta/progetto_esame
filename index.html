@@ -10,8 +10,7 @@
     <a-scene>
 
     <a-assets timeout="1000">
-       <audio id="audio_bacheca" src="audio/bacheca1.mp3" preload="none"></audio>
-       <img id="cartello" src="img/cartello.jpg">
+
        <img id="sfondo" src="img/maps360.jpg">
     </a-assets>
 
@@ -24,15 +23,9 @@
 
 
 <!--Bacheca informativa-->
-    <a-entity gltf-model="#bacheca" 
-        position="4.35868 -2.354 3.861" 
-        scale="10 9 9" 
-        rotation="0 352.32 0" 
-        class="clickable" 
-        info-portale=""
-        sound="src: #audio_bacheca; on: click">
+<a-entity id="gruppo-bacheca" position="4.358 -2.354 3.861" rotation="0 352.32 0" scale="10 9 9">
 
-      <a-image src="#cartello" 
+      <a-image src="img/cartello.jpg"" 
         width="0.40" 
         height="0.30" 
         position="0.093 0.111 0.032" 
@@ -48,8 +41,8 @@
           material="emissive: #FF4500; emissiveIntensity: 0.6"
           animation="property: scale; to: 1.2 1.2 1.2; dir: alternate; loop: true; dur: 1000; easing: easeInOutQuad"
           class="clickable" 
-          info-portale=""
-          sound="src: #audio_bacheca; on: click"> 
+        info-portale=""
+        sound="src: url(audio/bacheca1.mp3); on: click">
      
         <a-text value="AUDIO" align="center" width="0.4" position="0 0 0.001" color="#FFFFFF"></a-text>
 
