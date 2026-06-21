@@ -80,6 +80,7 @@ AFRAME.registerComponent('muri-invisibili', {
         <a-asset-item id="didascalia" src="modelli/race_flag.glb"></a-asset-item>
         <img id="cartellino" src="img/cartellino.jpg">
         <audio id="audio_bacheca4" src="audio/bacheca4.mp3" preload="none"></audio>
+
         
         <img id="targhetta" src="img/targhetta.jpg">
         <a-asset-item id="colonnePortanti" src="modelli/ionic_column.glb"></a-asset-item>
@@ -117,8 +118,9 @@ AFRAME.registerComponent('muri-invisibili', {
                 rotation="0 55.38 0">
       </a-entity>
 
-<a-image src="#cartellino" width="5" height="3" position="5.91818 2.49232 -7.64015" rotation="0 -51.15 0" material="shader: standard; npot: true" scale="0.4 0.49 1" geometry="">
-        <a-circle class="clickable" radius="0.3" color="#FF4500" position="2 -1.2 0.05" material="emissive: #FF4500; emissiveIntensity: 0.6" sound="src: audio/bacheca4.mp3; on: click" animation="property: scale; to: 1.1 1.1 1.1; dir: alternate; loop: true" geometry="">
+
+      <a-image src="#cartellino" width="5" height="3" position="6.63 2.592 -8.514" rotation="0 -35 0" material="shader: standard; npot: true" scale="0.51 0.46 1" geometry="">
+        <a-circle class="clickable" radius="0.3" color="#FF4500" position="2 -1.2 0.05" material="emissive: #FF4500; emissiveIntensity: 0.6" sound="on: click" animation="property: scale; to: 1.1 1.1 1.1; dir: alternate; loop: true" geometry="">
           <a-text value="PLAY" align="center" width="3" position="0 0 0.01" color="#FFFFFF" text=""></a-text>
         </a-circle>
       </a-image>
@@ -243,7 +245,7 @@ AFRAME.registerComponent('muri-invisibili', {
           position="10.44049 5 -14.2006" 
           rotation="0 270 0" 
           width="3" 
-          height="5" 
+          height="6" 
           material="" 
           geometry="" 
           scale="0.91 0.72 1">
@@ -258,42 +260,35 @@ AFRAME.registerComponent('muri-invisibili', {
 
   <!--portale per tornare indietro-->
   <a-entity id="colonnato" position="0.5 2 15" scale="1 1 1" rotation="0 0 0">
+        <a-torus
+          color="#FF4500" 
+          radius="1"
+          radius-tubular="0.04"
+          material="emissive: #FF4500; emissiveIntensity: 0.5"
+          animation="property: rotation; to: 0 360 0; loop: true; dur: 6000; easing: linear">
+        </a-torus>
 
-    <a-torus
-    color="#FF4500" 
-    radius="1"
-    radius-tubular="0.04"
-    material="emissive: #FF4500; emissiveIntensity: 0.5"
-    animation="property: rotation; to: 0 360 0; loop: true; dur: 6000; easing: linear">
-  </a-torus>
-
-  <a-circle
-    class="clickable"
-    radius="1"
-    color="#4d0000"
-    opacity="0.2" 
-    side="double"
-    link="href: portone.html; title: Esci dall'edificio ; visualAspectEnabled: false">
-  </a-circle>
-  
-  <a-text
-    value="Torna fuori"
-    align="center"
-    position="0 0 0"
-    scale="2 2 2"
-    color="#FFFFFF"
-    rotation="0 180 0"
-    font="roboto">
-  </a-text>
-
-  </a-entity>
-
-
-      <a-entity light="type: ambient; color: #ffffff; intensity: 1.4;"></a-entity>
-
-      <a-entity light="type: point; color: #ffebc2; intensity: 1; distance: 15;" 
-                position="0 2 -9">
+        <a-circle
+          class="clickable"
+          radius="1"
+          color="#4d0000"
+          opacity="0.2" 
+          side="double"
+          link="href: emiciclo.html; title: Torna indietro al piazzale ; visualAspectEnabled: false">
+        </a-circle>
+        
+        <a-text
+          value="Torna alla piazza"
+          align="center"
+          position="0 0 0"
+          scale="2 2 2"
+          color="#FFFFFF"
+          rotation="0 180 0"
+          font="roboto">
+        </a-text>
       </a-entity>
 
-    </a-scene> </body>
+
+    </a-scene> 
+  </body>
 </html>
