@@ -11,7 +11,16 @@
 
         <a-entity id="camera-rig" position="11 0 0" rotation = "0 0 0">
         
-          <a-entity 
+  
+
+      <a-assets>
+        <img id="portone" src="img/portone360.jpg">
+      </a-assets>
+
+
+      <a-sky src="#portone" rotation="0 0 0"></a-sky>
+
+      <a-entity 
           id="user-camera" 
           camera 
           look-controls 
@@ -22,14 +31,6 @@
         </a-entity>
       </a-entity>
 
-  
-
-      <a-assets>
-        <img id="portone" src="img/portone360.jpg">
-      </a-assets>
-
-
-      <a-sky src="#portone" rotation="0 0 0"></a-sky>
       
 
 

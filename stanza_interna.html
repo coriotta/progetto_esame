@@ -230,55 +230,6 @@ AFRAME.registerComponent('muri-invisibili', {
 
 
 
-
-
-
-
-  <!--portale per vedere la statua-->
-  <a-entity id="statuetta" position="0.5 2 15" scale="1 1 1" rotation="0 0 0">
-
-    <a-torus
-    color="#FF4500" 
-    radius="1"
-    radius-tubular="0.04"
-    material="emissive: #FF4500; emissiveIntensity: 0.5"
-    animation="property: rotation; to: 0 360 0; loop: true; dur: 6000; easing: linear">
-  </a-torus>
-
-  <a-circle
-    class="clickable"
-    radius="1"
-    color="#4d0000"
-    opacity="0.2" 
-    side="double"
-    link="href: statua.html; title: Avvicinati alla statua ; visualAspectEnabled: false">
-  </a-circle>
-  
-  <a-text
-    value="Statua"
-    align="center"
-    position="0 0 0"
-    scale="2 2 2"
-    color="#FFFFFF"
-    rotation="0 180 0"
-    font="roboto">
-  </a-text>
-
-  </a-entity>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   <!--portale per tornare indietro-->
   <a-entity id="colonnato" position="0.5 2 15" scale="1 1 1" rotation="0 0 0">
 
