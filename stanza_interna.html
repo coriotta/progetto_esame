@@ -76,15 +76,18 @@ AFRAME.registerComponent('muri-invisibili', {
       <a-assets>
 
         <a-asset-item id="emiciclo-modello" src="modelli/stanza_internaMod.glb"></a-asset-item>
-        <a-asset-item id="quadro" src="modelli/picture_frame.glb"></a-asset-item>
         <a-asset-item id="statuetta" src="modelli/statuettaEbase.glb"></a-asset-item>
         <a-asset-item id="colonnePortanti" src="modelli/ionic_column.glb"></a-asset-item>
         <img id="vetrata" src="img/finestraCol.png">
         <img id="quadro1" src="img/quadro1.jpg">
         <img id="quadro2" src="img/quadro2.jpg">
         <img id="quadro3" src="img/quadro3.jpg">
+
+        <img id="quadro4" src="img/quadro4.jpg">
+        <img id="quadro5" src="img/quadro5.jpg">
         <img id="quadro6" src="img/quadro6.jpg">
         <img id="quadro7" src="img/quadro7.jpg">
+        <img id="quadro8" src="img/quadro8.jpg">
         
       </a-assets>
 
@@ -134,46 +137,18 @@ AFRAME.registerComponent('muri-invisibili', {
       <!--quadri-->
       <!--sx-->
 
-      <a-entity gltf-model="modelli/picture_frame.glb" position="-9.2 1.78302 17.5" scale="2 1.6 2.01" rotation="">
-      </a-entity>
 
-      <a-image src="#quadro1" position="-9.15233 5.36481 16.09839" rotation="0 90 0" width="3" height="3" material="" geometry="">
+
+      <a-image src="#quadro1" 
+           position="-9.15233 5.36481 16.09839" 
+           rotation="0 90 0" 
+           width="3" 
+           height="3" 
+           material="" 
+           geometry="">
       </a-image>
 
 
-
-      <a-entity gltf-model="#quadro" 
-          position="-9.2 1 -12.5" 
-          scale="2 2 2"
-          rotation="0 0 0">
-      </a-entity>
-
-
-
-
-
-
-      <a-entity gltf-model="#quadro" 
-          position="-9.2 -5.5 -2.01" 
-          scale="2 4.47 2.79" 
-          rotation="">
-      </a-entity>
-      <a-image src="#quadro3" 
-          position="-9.19258 4.5 -3.95982" 
-          rotation="0 90 0" 
-          width="4" 
-          height="8" 
-          material="" 
-          geometry="">
-      </a-image>
-
-
-
-      <a-entity gltf-model="modelli/picture_frame.glb" 
-          position="-9.2 -1.71 7.5" 
-          scale="2 2.78 2.09" 
-          rotation="">
-      </a-entity>
        <a-image src="#quadro2" 
           position="-9.19258 4.5 6" 
           rotation="0 90 0" 
@@ -184,24 +159,50 @@ AFRAME.registerComponent('muri-invisibili', {
        </a-image>
 
 
+      <a-image src="#quadro3" 
+          position="-9.19258 4.5 -3.95982" 
+          rotation="0 90 0" 
+          width="4" 
+          height="8" 
+          material="" 
+          geometry="">
+      </a-image>
 
-
+      <a-image src="#quadro4" 
+          position="-9.19258 4.5 -14" 
+          rotation="0 90 0" 
+          width="5" 
+          height="3" 
+          material="" 
+          geometry="">
+      </a-image>
 
 
       <!--dx-->
 
-      <a-entity gltf-model="#quadro" 
-          position="10 1 -15.5" 
-          scale="2 2 2"
-          rotation="0 180 0">
-      </a-entity>
+
+      <a-image src="#quadro5" 
+          position="9.97698 4.94 15.84156" 
+          rotation="0 90 0" 
+          width="3" 
+          height="3" 
+          material="" 
+          geometry="">
+      </a-image>
+      
+
+      <a-image src="#quadro6" 
+          position="10.46095 5 5.82166" 
+          rotation="0 90 0" 
+          width="2" 
+          height="6" 
+          material="" 
+          geometry="" 
+          scale="1 0.74 1">
+      </a-image>
 
 
-      <a-entity gltf-model="#quadro" 
-          position="10 1 -5.43" 
-          scale="2 2 1.91" 
-          rotation="0 180 0">
-      </a-entity>
+
       <a-image src="#quadro7" 
           position="9.99163 5.45552 -4.09102" 
           rotation="0 90 0" 
@@ -212,30 +213,61 @@ AFRAME.registerComponent('muri-invisibili', {
           scale="0.91 0.72 1">
       </a-image>
 
-
-
-      <a-entity gltf-model="#quadro" 
-          position="10 1 4.5" 
-          scale="2 2 2"
-          rotation="0 180 0">
-      </a-entity>
-
-
-
-
-      <a-entity gltf-model="#quadro" 
-          position="10 1.5 14.5" 
-          scale="2 1.5 2"
-          rotation="0 180 0">
-      </a-entity>
-      <a-image src="#quadro6" 
-          position="9.97698 4.94 15.84156" 
+      <a-image src="#quadro8" 
+          position="10.44049 5 -14.2006" 
           rotation="0 90 0" 
           width="3" 
-          height="3" 
+          height="5" 
           material="" 
-          geometry="">
+          geometry="" 
+          scale="0.91 0.72 1">
       </a-image>
+
+
+
+
+
+
+
+
+
+
+
+
+  <!--portale per vedere la statua-->
+  <a-entity id="statuetta" position="0.5 2 15" scale="1 1 1" rotation="0 0 0">
+
+    <a-torus
+    color="#FF4500" 
+    radius="1"
+    radius-tubular="0.04"
+    material="emissive: #FF4500; emissiveIntensity: 0.5"
+    animation="property: rotation; to: 0 360 0; loop: true; dur: 6000; easing: linear">
+  </a-torus>
+
+  <a-circle
+    class="clickable"
+    radius="1"
+    color="#4d0000"
+    opacity="0.2" 
+    side="double"
+    link="href: statua.html; title: Avvicinati alla statua ; visualAspectEnabled: false">
+  </a-circle>
+  
+  <a-text
+    value="Statua"
+    align="center"
+    position="0 0 0"
+    scale="2 2 2"
+    color="#FFFFFF"
+    rotation="0 180 0"
+    font="roboto">
+  </a-text>
+
+  </a-entity>
+
+
+
 
 
 
