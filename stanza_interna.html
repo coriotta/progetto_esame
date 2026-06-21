@@ -77,6 +77,10 @@ AFRAME.registerComponent('muri-invisibili', {
 
         <a-asset-item id="emiciclo-modello" src="modelli/stanza_internaMod.glb"></a-asset-item>
         <a-asset-item id="statuetta" src="modelli/statuettaEbase.glb"></a-asset-item>
+        <a-asset-item id="didascalia" src="modelli/race_flag.glb"></a-asset-item>
+        <img id="cartellino" src="img/cartellino.jpg">
+        <audio id="audio_bacheca4" src="audio/bacheca4.mp3" preload="none"></audio>
+        
         <img id="targhetta" src="img/targhetta.jpg">
         <a-asset-item id="colonnePortanti" src="modelli/ionic_column.glb"></a-asset-item>
         <img id="vetrata" src="img/finestra.png">
@@ -107,13 +111,33 @@ AFRAME.registerComponent('muri-invisibili', {
       
 
       <!--interni-->
+<a-entity gltf-model="#didascalia" 
+                position="6.700 0.62404 -8.588" 
+                scale="0.15 0.2 0.08" 
+                rotation="0 55.38 0">
+      </a-entity>
+
+<a-image src="#cartellino" width="5" height="3" position="5.91818 2.49232 -7.64015" rotation="0 -51.15 0" material="shader: standard; npot: true" scale="0.4 0.49 1" geometry="">
+        <a-circle class="clickable" radius="0.3" color="#FF4500" position="2 -1.2 0.05" material="emissive: #FF4500; emissiveIntensity: 0.6" sound="src: audio/bacheca4.mp3; on: click" animation="property: scale; to: 1.1 1.1 1.1; dir: alternate; loop: true" geometry="">
+          <a-text value="PLAY" align="center" width="3" position="0 0 0.01" color="#FFFFFF" text=""></a-text>
+        </a-circle>
+      </a-image>
+
+
       <a-entity gltf-model="#statuetta" 
                 position="0 -2 -9" 
                 scale="2.5 3 2.5"
                 rotation="0 360 0"
                 static-body >
       </a-entity>
-<a-image src="#targhetta" position="0.32556 1.96104 -8.4" rotation="0 360 0" width="1" height="3" material="" geometry="" scale="1.26 0.13 1">
+      <a-image src="#targhetta" 
+             position="0.32556 1.96104 -8.4" 
+             rotation="0 360 0" 
+             width="1" 
+             height="3" 
+             material="" 
+             geometry="" 
+             scale="1.26 0.13 1">
       </a-image>
 
       <a-image src="#vetrata" 
@@ -142,10 +166,10 @@ AFRAME.registerComponent('muri-invisibili', {
 
 
       <a-image src="#quadro1" 
-           position="-9.15233 5.36481 16.09839" 
+           position="-9.15233 4.7 16.09839" 
            rotation="0 90 0" 
-           width="3" 
-           height="3" 
+           width="4" 
+           height="4" 
            material="" 
            geometry="">
       </a-image>
@@ -154,8 +178,8 @@ AFRAME.registerComponent('muri-invisibili', {
        <a-image src="#quadro2" 
           position="-9.19258 4.5 6" 
           rotation="0 90 0" 
-          width="3" 
-          height="5" 
+          width="4" 
+          height="4" 
           material="" 
           geometry="">
        </a-image>
@@ -185,8 +209,8 @@ AFRAME.registerComponent('muri-invisibili', {
 
       <a-image src="#quadro5" 
           position="9.97698 4.94 15.84156" 
-          rotation="0 90 0" 
-          width="3" 
+          rotation="0 270 0" 
+          width="2" 
           height="3" 
           material="" 
           geometry="">
@@ -217,7 +241,7 @@ AFRAME.registerComponent('muri-invisibili', {
 
       <a-image src="#quadro8" 
           position="10.44049 5 -14.2006" 
-          rotation="0 90 0" 
+          rotation="0 270 0" 
           width="3" 
           height="5" 
           material="" 
